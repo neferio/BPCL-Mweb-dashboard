@@ -34,7 +34,7 @@
   header{
     position:sticky;top:0;z-index:5;background:var(--card);
     margin:0 calc(-14px - env(safe-area-inset-right)) 14px calc(-14px - env(safe-area-inset-left));
-    padding:calc(22px + env(safe-area-inset-top)) calc(14px + env(safe-area-inset-right)) 12px calc(14px + env(safe-area-inset-left));
+    padding:calc(12px + env(safe-area-inset-top)) calc(14px + env(safe-area-inset-right)) 12px calc(14px + env(safe-area-inset-left));
     border-bottom:1px solid var(--border);
   }
   .logo-row{display:flex;justify-content:flex-start;margin-bottom:12px}
@@ -352,17 +352,7 @@ function renderDash(m){
   document.getElementById("loading").style.display="none";
   document.getElementById("errorState").style.display="none";
   document.getElementById("dash").style.display="block";
-  toTop();
 }
-
-/* ---------- always open at the top ---------- */
-/* Prevent the browser restoring a prior scroll position when arriving from another page,
-   on reload, or on back/forward (bfcache) restore. */
-if ("scrollRestoration" in history) history.scrollRestoration = "manual";
-function toTop(){ window.scrollTo(0,0); document.documentElement.scrollTop=0; document.body.scrollTop=0; }
-toTop();
-window.addEventListener("load", toTop);
-window.addEventListener("pageshow", toTop);
 
 /* ---------- fetch ---------- */
 /* ==TEST-DATA BLOCK== fallback: if the live fetch fails and the embedded
