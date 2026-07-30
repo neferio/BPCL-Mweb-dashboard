@@ -35,15 +35,7 @@
     position:sticky;top:0;z-index:5;background:var(--canvas);
     margin:0 -2px;padding:6px 2px 14px;
   }
-  .hdr-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
-  .logo{height:40px;width:auto;display:block}
-  .logo-fallback{
-    display:inline-flex;align-items:center;font-size:15px;font-weight:800;letter-spacing:.02em;
-    color:#0057a8;background:#ffd200;border-radius:8px;padding:5px 11px;
-  }
-  .today{font-size:12px;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
   .proj-name{font-size:20px;font-weight:700;letter-spacing:-.02em}
-  .desc{margin-top:4px;font-size:12px;color:var(--soft);line-height:1.35}
   .fresh-chip{
     display:inline-flex;align-items:center;gap:5px;margin-top:8px;
     font-size:11.5px;font-weight:600;color:var(--muted);
@@ -106,14 +98,6 @@
 
   <div id="dash" style="display:none">
     <header>
-      <div class="hdr-row">
-        <div>
-          <!-- Official BPCL logo, embedded as a data URI (no network dependency) -->
-          <img class="logo" id="clientLogo" src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjI1MDAiIHZpZXdCb3g9IjEuOTI5IDIuMjQxIDcxLjAwNSA5Ni4yMTY5OTI4MiIgd2lkdGg9IjIwMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMS45MjkgMi4yNDFoNzEuMDA1djgzLjI1NWgtNzEuMDA1em0xLjU5NyAxLjU5N2g2Ny41ODF2NTAuOTE0aC02Ny41ODF6IiBmaWxsPSIjZmZkZTAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48cGF0aCBkPSJtMS45MjkgODUuMjQ0aDcwLjk5OHY1LjkzNmgtNzAuOTk4eiIgZmlsbD0iIzAwN2RjNiIvPjxnIGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJtMzcuNDMxIDUyLjE1MmMtOS4zNjggMC0xNy4wMDktNy41NjktMTcuMDA5LTE2Ljg1MyAwLTkuMjgxIDcuNjQxLTE2Ljg1MSAxNy4wMDktMTYuODUxIDkuMzY5IDAgMTcuMDA5IDcuNTY5IDE3LjAwOSAxNi44NTEtLjAwMSA5LjI4NC03LjY0IDE2Ljg1My0xNy4wMDkgMTYuODUzbS0uMjI4Ljc3M2MtMTIuMTM1IDAtMjIuMDMyLTkuODk2LTIyLjAzMi0yMi4wMzIgMC0xMi4xMzMgOS44OTctMjIuMDMzIDIyLjAzMi0yMi4wMzMgMTIuMTM0IDAgMjIuMDMyIDkuOSAyMi4wMzIgMjIuMDMzIDAgMTIuMTM1LTkuODk4IDIyLjAzMi0yMi4wMzIgMjIuMDMyeiIgZmlsbD0iIzAwN2RjNiIvPjxwYXRoIGQ9Im0zNy4wNTYgNTAuMjI3Yy04LjE1MiAwLTE0LjgwMi02LjYwMy0xNC44MDItMTQuNzAyIDAtOC4wOTggNi42NS0xNC43MDEgMTQuODAyLTE0LjcwMSA4LjE1MSAwIDE0LjgwMSA2LjYwMyAxNC44MDEgMTQuNzAxLS4wMDEgOC4wOTktNi42NSAxNC43MDItMTQuODAxIDE0LjcwMiIgZmlsbD0iIzAwN2RjNiIvPjxwYXRoIGQ9Im0zMS41MjYgNDAuNDMyYzMuMDc2LS4wOTcgMy45NzctMy41MDQgNC4xMi02Ljk3OS4xNDQtMy40NzggMy4yNTQtNi4zNzIgOC4wNjUtNi4yMTQtNy43MjktNS4xNzktMTYuNzU3LS40MjUtMTcuMzc4IDUuNjM4LS42MTggNi4wNjMgMi4xMTcgNy42NDkgNS4xOTMgNy41NTUiIGZpbGw9IiNmZmRlMDAiLz48cGF0aCBkPSJtNDIuNjc1IDMwLjYyYy0zLjAyNS4wOTYtMy45MTEgMy41MDMtNC4wNTEgNi45NzktLjE0MiAzLjQ3OC0zLjIgNi4zNy03LjkyOCA2LjIxMSA3LjU5NyA1LjE4MyAxNi40NzQuNDI5IDE3LjA4My01LjYzNXMtMi4wOC03LjY1Mi01LjEwNC03LjU1NSIgZmlsbD0iI2ZmZGUwMCIvPjxwYXRoIGQ9Im0xOS40ODkgNjMuMjQ2aC40MzJjLjMyOSAwIC41ODMtLjA2My43NTktLjE5Ni4xNzctLjEzMS4yNjMtLjMyLjI2My0uNTYzIDAtLjI1NC0uMDg2LS40NDktLjI2My0uNTgxLS4xNzYtLjEzMS0uNDM1LS4xOTktLjc3MS0uMTk5aC0uNDE5djEuNTM5bS0uMDAxIDEuNTc5djEuNjM0aC41MzZjLjM1MSAwIC42MTUtLjA3Mi43ODctLjIxLjE3My0uMTQxLjI1OC0uMzUzLjI1OC0uNjMzIDAtLjI2Ni0uMDg1LS40NjQtLjI1OC0uNTk3LS4xNzEtLjEzLS40MzYtLjE5NC0uNzg3LS4xOTR6bS0zLjEzMSAzLjM4MXYtOC4yODdoMy4xNTVjLjkxNSAwIDEuNjMuMDI2IDIuMTQ2LjA3OXMuOTI1LjEzOSAxLjIyMy4yNTljLjM4LjE1Mi42NzMuMzkxLjg3OC43MDguMjA1LjMxOC4zMDkuNjk2LjMwOSAxLjEzNCAwIC40NjUtLjEzMi44NDYtLjM5NiAxLjE0Mi0uMjY0LjI5NS0uNjY2LjUxNi0xLjIwOS42NTMuNjI0LjExNiAxLjA4NC4zMzMgMS4zODIuNjQ4LjMuMzE2LjQ0OC43NDcuNDQ4IDEuMjk0IDAgLjc4Ny0uMjkxIDEuMzc5LS44NzQgMS43NzUtLjU4My4zOTctMS40NTUuNTk1LTIuNjExLjU5NXptOS4wNDUgMHYtOC4yODdoMi43OTR2My40MTFjLjE4My0uMzQ1LjQzMy0uNjA1Ljc1MS0uNzc5LjMxNi0uMTc1LjY5Ny0uMjYxIDEuMTQ1LS4yNjEuNjcgMCAxLjE2NS4xODggMS40ODcuNTYzLjMyNC4zNzguNDg3Ljk1Ni40ODcgMS43Mzl2My42MTNoLTIuODI1di0zLjU3OWMwLS4yMy0uMDQxLS40LS4xMjQtLjUwOS0uMDg0LS4xMDUtLjIxNy0uMTU5LS4zOTctLjE1OWEuNDcuNDcgMCAwIDAgLS4zODQuMTczYy0uMDk0LjExNS0uMTQuMjczLS4xNC40NzN2My42MDJ6bTguMDA3LTQuMTA3Yy4wNjQtLjU5LjM1MS0xLjAzNS44NTEtMS4zNDUuNTAyLS4zMDkgMS4xOTUtLjQ2NCAyLjA4My0uNDY0LjUzNCAwIDEuMDA4LjA0NyAxLjQxNy4xNDQuNDEuMDk1Ljc0LjIzMi45ODcuNDExLjI0Ny4xNzcuNDE4LjQwMy41MTkuNjguMTAzLjI3OC4xNS43MDIuMTUgMS4yNjR2My40MThoLTIuNTA5bC0uMDc1LS41NzRhMS44NSAxLjg1IDAgMCAxIC0uNzQ0LjUzN2MtLjI5Ni4xMTgtLjY1LjE3OC0xLjA2NC4xNzgtLjU4MSAwLTEuMDQyLS4xNjEtMS4zODEtLjQ4Ny0uMzM4LS4zMjItLjUwNy0uNzY0LS41MDctMS4zMjMgMC0uNzI5LjI3MS0xLjI1LjgxNy0xLjU2My41NDMtLjMxNCAxLjQ2NS0uNDczIDIuNzYzLS40NzNoLjA4MXYtLjM1OGMwLS4yMDktLjA0LS4zNTktLjExOS0uNDQ4LS4wOC0uMDkxLS4yMTEtLjEzMy0uMzkzLS4xMzMtLjE4NyAwLS4zMjQuMDQtLjQxNi4xMjYtLjA4OS4wODUtLjE0Mi4yMjEtLjE1NC40MDZ6bTMuMzg4IDEuNTM5aC0uMzY4Yy0uMjg0IDAtLjUwNS4wNi0uNjU1LjE3Ny0uMTUxLjExNy0uMjI3LjI4NS0uMjI3LjUwNiAwIC4xODQuMDU2LjMzNS4xNjcuNDQ2YS42MDYuNjA2IDAgMCAwIC40NDQuMTY1Yy4yMTYgMCAuMzc2LS4wNy40ODItLjIwOC4xMDQtLjE0MS4xNTYtLjM1MS4xNTYtLjYzOHYtLjQ0OHptNi43NTYtMi41OS4zMTUtLjI4NWMuMjA3LS4yMDUuMzc4LS4zMzMuNTE1LS4zODkuMTMzLS4wNTUuMjg3LS4wODQuNDY2LS4wODQuMTI2IDAgLjI0Ny4wMTYuMzYuMDQ0LjExMi4wMzEuMjE4LjA3My4zMTkuMTMxdjIuMTYyYTUuNDM0IDUuNDM0IDAgMCAwIC0uNTcxLS4xMzggMi41ODMgMi41ODMgMCAwIDAgLS40NjQtLjA0OWMtLjI5IDAtLjQ5OS4wOTQtLjYzMi4yNzYtLjEzMi4xODQtLjE5OC40NzctLjE5OC44Nzl2Mi42MWgtMi44Njl2LTUuNzc1aDIuNzU5em0yLjkwNyAxLjA1MWMuMDY2LS41OS4zNDgtMS4wMzUuODQ5LTEuMzQ1LjUwMy0uMzA5IDEuMTk2LS40NjQgMi4wODItLjQ2NGE2LjE5IDYuMTkgMCAwIDEgMS40MTguMTQ0Yy40MTIuMDk1LjczOS4yMzIuOTg5LjQxMS4yNDMuMTc3LjQxNS40MDMuNTE3LjY4LjEwMi4yNzguMTUuNzAyLjE1IDEuMjY0djMuNDE4aC0yLjUwOWwtLjA3NS0uNTc0Yy0uMjAzLjI0LS40NS40Mi0uNzQ0LjUzNy0uMjk2LjExOC0uNjQ5LjE3OC0xLjA2NC4xNzgtLjU4MSAwLTEuMDQyLS4xNjEtMS4zNzgtLjQ4Ny0uMzQyLS4zMjItLjUxMi0uNzY0LS41MTItMS4zMjMgMC0uNzI5LjI3My0xLjI1LjgxOS0xLjU2My41NDMtLjMxNCAxLjQ2OC0uNDczIDIuNzY0LS40NzNoLjA4di0uMzU4YzAtLjIwOS0uMDQtLjM1OS0uMTE5LS40NDgtLjA3OC0uMDkxLS4yMS0uMTMzLS4zOTItLjEzMy0uMTg2IDAtLjMyNi4wNC0uNDE0LjEyNi0uMDkzLjA4NS0uMTQ0LjIyMS0uMTU3LjQwNnptMy4zODYgMS41MzloLS4zNjdjLS4yODcgMC0uNTA2LjA2LS42NTYuMTc3LS4xNTIuMTE3LS4yMjguMjg1LS4yMjguNTA2YS42MS42MSAwIDAgMCAuMTY2LjQ0NmMuMTEuMTA4LjI1OC4xNjUuNDQ1LjE2NS4yMTUgMCAuMzc2LS4wNy40ODEtLjIwOC4xMDQtLjE0MS4xNTctLjM1MS4xNTctLjYzOHYtLjQ0OHptMy41MTktMS41MTd2LTEuNjkxaC43NjJ2LTEuMDAxbDIuNzYxLS45NDR2MS45NDVoMS4zMjR2MS42OTFoLTEuMzI0djEuNzcxYzAgLjE5LjA0OS4zMzMuMTU0LjQyOS4xMDIuMDkzLjI1Ni4xMzkuNDY2LjEzOS4wNyAwIC4xNTctLjAxMS4yNjEtLjAyOC4xLS4wMTguMjEyLS4wNDQuMzMxLS4wNzN2MS43MDljLS4zNzEuMDkxLS43MTUuMTYyLTEuMDI5LjIxLS4zMTUuMDQ1LS42MDkuMDctLjg4My4wNy0uNjggMC0xLjE5NC0uMTQ3LTEuNTQxLS40NDEtLjM0Ny0uMjkzLS41Mi0uNzMtLjUyLTEuMzEydi0yLjQ3M2gtLjc2Mm0tNDUuNTg5IDExLjQ1NXYxLjcyNWMuMDMyLjAwNC4wNjYuMDA5LjEwNi4wMTFoLjE1NmMuMzUgMCAuNjEyLS4wNzUuNzg5LS4yMjguMTc2LS4xNS4yNjQtLjM3Ni4yNjQtLjY3NiAwLS4yODUtLjA5MS0uNDk0LS4yNzQtLjYzMS0uMTgyLS4xMzUtLjQ2NC0uMjAxLS44NDctLjIwMXptLTMuMjIzIDYuNDMzdi04LjI4Nmg0LjE2NmMxLjIxOSAwIDIuMTI4LjIyNCAyLjcyNS42NjkuNTk3LjQ0Ni44OTUgMS4xMi44OTUgMi4wMjcgMCAuOTE0LS4yOTcgMS42MDQtLjg5MyAyLjA3NC0uNTk1LjQ3LTEuNDY4LjcwNi0yLjYxNy43MDZoLTEuMDUzdjIuODF6bTEwLjY1NS0zLjYyNmgxLjQ5YzAtLjAxOS4wMDItLjA0Ny4wMDUtLjA4NGwuMDA1LS4wNzdjMC0uMjU0LS4wNjEtLjQ0Mi0uMTg3LS41ODEtLjEyNS0uMTM1LS4zMDUtLjIwMS0uNTQxLS4yMDEtLjI0MSAwLS40MjkuMDc5LS41NjYuMjM0LS4xMzcuMTU2LS4yMDcuMzY4LS4yMDcuNjQzdi4wNjZtNC4wMjIgMS4xOThoLTMuOTk4di4xNjJjMCAuMzM1LjA2NC41ODcuMjAxLjc2MS4xMzMuMTc3LjMzLjI2My41OS4yNjMuMjIxIDAgLjM4OS0uMDU1LjUwMS0uMTYuMTE3LS4xMDguMTk0LS4yODMuMjMyLS41M2gyLjM4YzAgLjY2NC0uMjY5IDEuMTcyLS44MDYgMS41MzItLjU0LjM2LTEuMzA3LjUzOS0yLjMwOC41MzktMS4wODggMC0xLjk0Ny0uMjcxLTIuNTczLS44MTQtLjYyOS0uNTQyLS45NDMtMS4yODEtLjk0My0yLjIxMyAwLS45MzMuMzEzLTEuNjY4Ljk0My0yLjIxMy42MjYtLjU0MyAxLjQ4NC0uODE2IDIuNTczLS44MTYgMS4wMzUgMCAxLjgzMy4yNjUgMi4zOTYuNzkyLjU1OS41MjUuODQzIDEuMjc0Ljg0MyAyLjI0OGE2LjMzMSA2LjMzMSAwIDAgMSAtLjAzMS40NDl6bS42MjItMS42NTh2LTEuNjkxaC43NjN2LTFsMi43NTktLjk0NXYxLjk0NWgxLjMyNHYxLjY5MWgtMS4zMjR2MS43N2MwIC4xOTEuMDUyLjMzNS4xNTQuNDI4LjEwMy4wOTUuMjU4LjE0LjQ2Ni4xNC4wNyAwIC4xNTgtLjAwOS4yNi0uMDI3LjEwMy0uMDE4LjIxNC0uMDQ0LjMzNC0uMDcydjEuNzA3Yy0uMzczLjA5My0uNzE2LjE2My0xLjAzMS4yMDlhNS43MzQgNS43MzQgMCAwIDEgLS44OC4wNzFjLS42ODMgMC0xLjE5Ni0uMTQ4LTEuNTQyLS40NDEtLjM0OS0uMjkyLS41Mi0uNzI5LS41Mi0xLjMxMnYtMi40NzJoLS43NjNtOC44MDItMS4wNzIuMzE1LS4yODZjLjIwOC0uMjA0LjM3OS0uMzM0LjUxNC0uMzkxLjEzNC0uMDUyLjI4OS0uMDg0LjQ2Ni0uMDg0LjEyOCAwIC4yNDguMDE4LjM2MS4wNDYuMTEyLjAzLjIxOS4wNzMuMzE5LjEzMnYyLjE2MmE1LjIgNS4yIDAgMCAwIC0uNTctLjEzOSAyLjQ5NiAyLjQ5NiAwIDAgMCAtLjQ2NS0uMDQ3Yy0uMjkgMC0uNS4wOTEtLjYzMS4yNzQtLjEzMi4xODMtLjE5OS40NzctLjE5OS44Nzd2Mi42MTJoLTIuODd2LTUuNzc3aDIuNzZ6bTYuMDk2Ljc2MmMtLjIxMSAwLS4zNjYuMTE2LS40NTkuMzQ1LS4wOTQuMjI5LS4xMzkuNjItLjEzOSAxLjE2MSAwIC41NjUuMDQzLjk1Ni4xMzQgMS4xNzMuMDg5LjIxMi4yNDMuMzIxLjQ2NC4zMjEuMjE5IDAgLjM3MS0uMTA5LjQ1OS0uMzIxLjA5LS4yMTcuMTMzLS42MDcuMTMzLTEuMTczIDAtLjU1OS0uMDQ1LS45NS0uMTM3LTEuMTczLS4wOTEtLjIyMi0uMjQyLS4zMzMtLjQ1NS0uMzMzbS4wMDEtMS41MjNjMS4wOTEgMCAxLjk1Mi4yNzEgMi41NzkuODA2LjYyNy41MzkuOTQxIDEuMjc2Ljk0MSAyLjIxMyAwIC45MzgtLjMxNCAxLjY4LS45MzggMi4yMTctLjYyNS41NDEtMS40ODUuODExLTIuNTgyLjgxMS0xLjEgMC0xLjk2MS0uMjY4LTIuNTgzLS44MDQtLjYyMi0uNTM1LS45MzMtMS4yNzQtLjkzMy0yLjIxMyAwLS45NDMuMzExLTEuNjg1LjkzNy0yLjIyNC42MjItLjUzNiAxLjQ4Mi0uODA2IDIuNTc5LS44MDZ6IiBmaWxsPSIjMDA3ZGM2Ii8+PC9nPjxnIGZpbGw9IiMwMDdkYzYiPjxwYXRoIGQ9Im0zOS4zOTcgNzMuNzI0aDIuODY4djguMjg2aC0yLjg2OHoiLz48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im00Ni4wOTcgNzguMzg0aDEuNDkxYzAtLjAxOSAwLS4wNDcuMDA0LS4wODQuMDAzLS4wMzYuMDA3LS4wNjMuMDA3LS4wNzcgMC0uMjU0LS4wNjItLjQ0Mi0uMTg4LS41ODEtLjEyNC0uMTM1LS4zMDUtLjIwMS0uNTQxLS4yMDFhLjcyMy43MjMgMCAwIDAgLS41NjcuMjM0Yy0uMTM3LjE1Ni0uMjA2LjM2OC0uMjA2LjY0M3ptNC4wMjMgMS4xOThoLTMuOTk5di4xNjJjMCAuMzM1LjA2Ni41ODcuMTk5Ljc2MS4xMzMuMTc3LjMzMy4yNjMuNTkyLjI2My4yMjEgMCAuMzg5LS4wNTUuNTAxLS4xNi4xMTUtLjEwOC4xOTItLjI4My4yMzEtLjUzaDIuMzgxYzAgLjY2NC0uMjcgMS4xNzItLjgwNiAxLjUzMi0uNTQxLjM2LTEuMzA4LjUzOS0yLjMwOC41MzktMS4wODkgMC0xLjk0Ny0uMjcxLTIuNTczLS44MTQtLjYzMS0uNTQyLS45NDItMS4yODEtLjk0Mi0yLjIxMyAwLS45MzMuMzEyLTEuNjY4Ljk0Mi0yLjIxMy42MjYtLjU0MyAxLjQ4NC0uODE2IDIuNTczLS44MTYgMS4wMzMgMCAxLjgzMi4yNjUgMi4zOTYuNzkyLjU2MS41MjUuODQyIDEuMjc0Ljg0MiAyLjI0OCAwIC4wODQtLjAwOS4yMTktLjAyMi40MDkgMCAuMDE5LS4wMDQuMDMxLS4wMDcuMDR6bTEuMDE2LTMuMzVoMi44MDV2My41NjhjMCAuMjMyLjA0Ni40MDIuMTMzLjUxNS4wODguMTA4LjIyMS4xNjQuMzk5LjE2NC4xNjUgMCAuMjk0LS4wNTguMzg3LS4xNzNzLjEzOS0uMjczLjEzOS0uNDczdi0zLjYwMmgyLjh2NC45ODRhMzEuMzIzIDMxLjMyMyAwIDAgMSAuMDQ3Ljc5M2gtMi43MTR2LS45MTJhMi4zNDQgMi4zNDQgMCAwIDEgLS44Ny43ODUgMi40OTIgMi40OTIgMCAwIDEgLTEuMTYyLjI2NmMtLjY3MSAwLTEuMTY1LS4xODgtMS40ODMtLjU2Mi0uMzItLjM3My0uNDc5LS45NTUtLjQ3OS0xLjc0MXYtMy42MTJtOC4wODUgNS43Nzh2LTQuOTg0YTcuMSA3LjEgMCAwIDAgLS4wMTgtLjI5MSAxMi4xIDEyLjEgMCAwIDEgLS4wMjYtLjUwMmgyLjcxM3YuODk5Yy4yMzQtLjM0My41MjMtLjYwNC44NjMtLjc3N2EyLjQ2NCAyLjQ2NCAwIDAgMSAxLjE1NS0uMjYzYy40MDIgMCAuNzUxLjA4MyAxLjA0NS4yNDkuMjkxLjE2NS41NjkuNDMxLjgzMi44MDIuMjA2LS4zNC40NzYtLjYwMy44MTktLjc3OWEyLjQ3IDIuNDcgMCAwIDEgMS4xNjYtLjI3MWMuNjc2IDAgMS4xNzMuMTg5IDEuNDg4LjU2NC4zMTguMzczLjQ3Ny45NTQuNDc3IDEuNzR2My42MTNoLTIuODE1di0zLjU3OGMwLS4yMzEtLjA0Ni0uNDAzLS4xMjYtLjUxLS4wODQtLjEwNi0uMjE4LS4xNTktLjM5Ni0uMTU5YS40NjUuNDY1IDAgMCAwIC0uMzgxLjE2NGMtLjA4OC4xMS0uMTM0LjI3MS0uMTM0LjQ3djMuNjEzaC0yLjgyMnYtMy41NzhjMC0uMjMxLS4wNDItLjQwMy0uMTI0LS41MS0uMDg0LS4xMDYtLjIxOC0uMTU5LS4zOTctLjE1OWEuNDY2LjQ2NiAwIDAgMCAtLjM4Mi4xNzNjLS4wOTUuMTE2LS4xNDQuMjczLS4xNDQuNDcydjMuNjAzaC0yLjc5MyIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9nPjwvc3ZnPg==" alt="BPCL">
-          <div class="logo-fallback" id="logoFallback" style="display:none">BPCL</div>
-        </div>
-        <div class="today" id="todayDate"></div>
-      </div>
       <div class="proj-name" id="projName"></div>
       <div class="fresh-chip" id="freshChip" style="display:none"><span class="dot"></span><span id="freshTxt"></span></div>
     </header>
@@ -169,7 +153,7 @@ const n0 = v => (v==null||isNaN(v)) ? 0 : Number(v);
 function pct1(v){ if(v==null||isNaN(v)) return "\u2014"; const r=Math.round(v*10)/10; return (r%1===0?r.toFixed(0):r.toFixed(1))+"%"; }
 function fmtDateShortYr(d){ if(!d) return "\u2014"; const dt=new Date(d); if(isNaN(dt)) return "\u2014";
   const p=dt.toLocaleDateString("en-GB",{day:"2-digit",month:"short",year:"2-digit"}).replace(/,/g,"").split(" ");
-  return p[0]+" "+p[1].slice(0,3)+" '"+p[2]; }
+  return p[0]+" "+p[1]+" '"+p[2]; }
 function fmtDayMon(d){ if(!d) return ""; const dt=new Date(d); if(isNaN(dt)) return "";
   return dt.toLocaleDateString("en-GB",{day:"2-digit",month:"short"}); }
 function fmtDT(d){ if(!d) return "\u2014"; const dt=new Date(d); if(isNaN(dt)) return "\u2014";
@@ -231,7 +215,6 @@ function computeModel(payload){
     exp: project.expectedCompletionPercentage,
     done,
     endDate: done ? (project.actualEndDate||project.estimatedEndDate) : (project.estimatedEndDate||project.plannedEndDate),
-    planned: project.plannedEndDate,
     delayDays: n0(project.estimatedDelayDays),
     openIssues
   };
@@ -247,7 +230,7 @@ const ICONS = {
   calendar:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="3"/><path d="M8 2.5v4M16 2.5v4M3 9.5h18"/></svg>',
   warn:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 4.1 2.9 17a2 2 0 0 0 1.7 3h14.8a2 2 0 0 0 1.7-3L13.7 4.1a2 2 0 0 0-3.4 0Z"/><path d="M12 9.5v4"/><path d="M12 17h.01"/></svg>',
   check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 4.5-5"/></svg>',
-  graph:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-5 3 3 5-7"/></svg>',
+  activity:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg>',
   clock:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 2"/></svg>',
   up:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17 10 11l4 4 6-6"/><path d="M14 9h6v6"/></svg>',
   down:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7l6 6 4-4 6 6"/><path d="M14 15h6v-6"/></svg>',
@@ -261,8 +244,6 @@ function chip(icon,color,soft){
 function renderDash(m){
   document.title = esc(m.name)+" \u00b7 Dashboard";
   document.getElementById("projName").textContent = m.name;
-  document.getElementById("todayDate").textContent =
-    "Today, "+new Date().toLocaleDateString("en-GB",{day:"2-digit",month:"short",year:"numeric"});
   /* static freshness text per requirement */
   document.getElementById("freshTxt").textContent="Updated 5 mins ago";
   document.getElementById("freshChip").style.display="inline-flex";
@@ -279,12 +260,11 @@ function renderDash(m){
   const issSoft  = nIss===0 ? "var(--green-soft)" : "var(--red-soft)";
   const issIcon  = nIss===0 ? ICONS.check : ICONS.warn;
 
-  const planTxt = '<span>\u00b7 Plan: '+fmtDateShortYr(m.planned)+'</span>';
-  const delaySub = (m.done
+  const delaySub = m.done
     ? '<span class="accent-green">Completed</span>'
     : (m.delayDays>0
         ? '<span style="color:var(--red);display:flex;align-items:center">'+ICONS.clock+'</span><span class="accent-red">+'+m.delayDays+' '+(m.delayDays===1?'day':'days')+' vs plan</span>'
-        : '<span class="accent-green">On schedule</span>')) + planTxt;
+        : '<span class="accent-green">On schedule</span>');
 
   /* plan-gap line under the progress bar */
   const act=n0(m.act), exp=n0(m.exp), gap=Math.round((exp-act)*10)/10;
@@ -298,11 +278,11 @@ function renderDash(m){
       +chip(ICONS.heart, m.status.color, m.status.soft)
       +'<div class="content"><div class="cap">Project Health</div>'
       +'<div class="big">'+esc(m.status.label)+'</div>'
-      +(trendHTML?'<div class="sub">'+trendHTML+'</div><div class="desc">Based on avg velocity of work in the last 30 days</div>':'')+'</div>'
+      +(trendHTML?'<div class="sub">'+trendHTML+'</div>':'')+'</div>'
     +'</div>'
     /* 2. Progress - actual vs expected with tick-mark bar */
     +'<div class="card">'
-      +chip(ICONS.graph, "var(--blue)", "var(--blue-soft)")
+      +chip(ICONS.activity, "var(--blue)", "var(--blue-soft)")
       +'<div class="content"><div class="cap">Progress</div>'
       +'<div class="big">'+pct1(m.act)+'</div>'
       +'<div class="bar"><div class="fill" style="width:'+Math.max(0,Math.min(100,act)).toFixed(2)+'%"></div>'
@@ -320,9 +300,7 @@ function renderDash(m){
     +'<div class="card">'
       +chip(issIcon, issColor, issSoft)
       +'<div class="content"><div class="cap">Open Issues</div>'
-      +'<div class="big">'+issBig+'</div>'
-      +'<div class="desc">Log in to MMT to view the issues and its details.</div>'
-      +'</div>'
+      +'<div class="big">'+issBig+'</div></div>'
     +'</div>';
 
   document.getElementById("loading").style.display="none";
