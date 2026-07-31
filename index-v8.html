@@ -18,8 +18,6 @@
     --grey:#64748b;   --grey-soft:#f1f5f9;
     --track:#e2e8f0;
     --stat:var(--blue); --stat-soft:var(--blue-soft);   /* set at runtime from status */
-    /* BPCL brand */
-    --gold:#F5DD66; --gold-tint:#FCF5D5; --navy:#36598A; --navy-tint:#E6ECF4; --navy-deep:#2B4771;
   }
   *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   body{
@@ -45,16 +43,15 @@
   /* project selector - hints that more projects can live here */
   .proj-bar{
     display:flex;align-items:center;gap:11px;
-    background:var(--navy);border:1px solid var(--navy-deep);border-radius:14px;
-    padding:12px 14px;margin-bottom:7px;box-shadow:0 2px 8px rgba(43,71,113,.18);
-    border-left:4px solid var(--gold);
+    background:var(--card);border:1px solid var(--border);border-radius:14px;
+    padding:11px 13px;margin-bottom:6px;box-shadow:0 1px 3px rgba(15,23,42,.05);
   }
-  .proj-dot{width:9px;height:9px;border-radius:50%;background:var(--gold);flex:0 0 auto;box-shadow:0 0 0 3px rgba(245,221,102,.25)}
+  .proj-dot{width:9px;height:9px;border-radius:50%;background:var(--stat);flex:0 0 auto;box-shadow:0 0 0 3px var(--stat-soft)}
   .proj-txt{flex:1;min-width:0}
-  .proj-name{font-size:15px;font-weight:700;letter-spacing:-.015em;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .proj-count{font-size:9.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--gold);opacity:.9;margin-top:2px}
+  .proj-name{font-size:15px;font-weight:700;letter-spacing:-.015em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .proj-count{font-size:9.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--soft);margin-top:2px}
   .dots{display:flex;justify-content:center;gap:5px;margin-bottom:12px}
-  .dots i{width:14px;height:3px;border-radius:99px;background:var(--navy);opacity:.85}
+  .dots i{width:14px;height:3px;border-radius:99px;background:var(--stat);opacity:.85}
   .dots i.ghost{width:5px;background:var(--soft);opacity:.35}
   .fresh-chip{
     display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:600;color:var(--muted);
@@ -130,7 +127,7 @@
   /* ---------------- centre orb ---------------- */
   .orb{
     position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:6;
-    width:124px;height:124px;border-radius:50%;
+    width:118px;height:118px;border-radius:50%;
     background:var(--card);border:2px solid var(--stat);
     box-shadow:0 6px 22px rgba(15,23,42,.10);
     display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;
@@ -138,54 +135,26 @@
   }
   @keyframes orbIn{from{opacity:0;transform:translate(-50%,-50%) scale(.72)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
   .ring{
-    position:absolute;left:50%;top:50%;width:124px;height:124px;margin:-62px 0 0 -62px;
+    position:absolute;left:50%;top:50%;width:118px;height:118px;margin:-59px 0 0 -59px;
     border-radius:50%;border:2px solid var(--stat);pointer-events:none;
     animation:ripple 2.6s ease-out infinite;
   }
   @keyframes ripple{0%{transform:scale(1);opacity:.4}100%{transform:scale(1.22);opacity:0}}
   /* slow radar sweep around the orb */
   .dashring{
-    position:absolute;left:50%;top:50%;width:138px;height:138px;margin:-69px 0 0 -69px;
+    position:absolute;left:50%;top:50%;width:132px;height:132px;margin:-66px 0 0 -66px;
     pointer-events:none;animation:sweep 14s linear infinite;
   }
   .dashring circle{fill:none;stroke:var(--stat);stroke-width:1.5;stroke-dasharray:3 9;opacity:.45;stroke-linecap:round}
   @keyframes sweep{to{transform:rotate(360deg)}}
   .heart{color:var(--stat);display:flex;animation:beat 1.7s ease-in-out infinite}
-  .heart svg{width:44px;height:44px}
+  .heart svg{width:26px;height:26px}
   @keyframes beat{0%,100%{transform:scale(1)}12%{transform:scale(1.22)}24%{transform:scale(1)}36%{transform:scale(1.13)}48%{transform:scale(1)}}
   .orb-cap{font-size:8.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-top:3px}
   .orb-val{font-size:14px;font-weight:700;letter-spacing:-.02em;line-height:1.15;text-align:center;padding:0 8px}
   .orb-trend{font-size:9.5px;font-weight:600;display:flex;align-items:center;gap:3px}
   .orb-trend svg{width:11px;height:11px}
   .velocity{margin-top:12px;text-align:center;font-size:10px;color:var(--soft)}
-
-  /* ---------------- foldable site photographs ---------------- */
-  .fold{margin-top:12px}
-  .fold-head{
-    width:100%;appearance:none;border:none;cursor:pointer;font:inherit;
-    display:flex;align-items:center;gap:10px;
-    background:var(--navy);color:#fff;border-radius:12px;padding:13px 14px;
-    box-shadow:0 2px 8px rgba(43,71,113,.18);
-  }
-  .fold-head .ic{display:flex;color:var(--gold)}
-  .fold-head .ic svg{width:19px;height:19px}
-  .fold-title{flex:1;text-align:left;font-size:13.5px;font-weight:700;letter-spacing:-.01em}
-  .fold-chev{display:flex;color:var(--gold);transition:transform .3s ease}
-  .fold-chev svg{width:18px;height:18px}
-  .fold.open .fold-chev{transform:rotate(180deg)}
-  .fold.open .fold-head{border-radius:12px 12px 0 0}
-  .fold-body{max-height:0;overflow:hidden;transition:max-height .42s cubic-bezier(.3,.8,.3,1)}
-  .fold.open .fold-body{max-height:900px}
-  .fold-inner{
-    background:var(--card);border:1px solid var(--border);border-top:none;
-    border-radius:0 0 12px 12px;padding:12px;display:grid;grid-template-columns:1fr 1fr;gap:10px;
-  }
-  .photo{display:flex;flex-direction:column;gap:5px}
-  .photo:last-child{grid-column:1 / -1}
-  .photo img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:9px;border:1px solid var(--border);display:block}
-  .photo .pc{font-size:10px;font-weight:600;color:var(--ink);line-height:1.25}
-  .photo .pd{font-size:9px;color:var(--soft)}
-  .fold-note{margin-top:9px;font-size:9px;color:var(--soft);text-align:center;grid-column:1 / -1}
 
   /* ---------------- footer ---------------- */
   .cta-banner{
@@ -249,23 +218,6 @@
 
     <div class="stage" id="stage"></div>
     <div class="velocity">Health trend based on avg velocity of work in the last 7 days</div>
-
-    <!-- Foldable site photographs. Sample placeholder images until the API serves real ones. -->
-    <div class="fold" id="fold">
-      <button class="fold-head" onclick="toggleFold()" aria-expanded="false" aria-controls="foldBody">
-        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="15" rx="2.5"/><circle cx="8.5" cy="10" r="1.6"/><path d="m4 17 5-5 4 4 3-2.5 4 3.5"/></svg></span>
-        <span class="fold-title">Site Photographs (3)</span>
-        <span class="fold-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
-      </button>
-      <div class="fold-body" id="foldBody">
-        <div class="fold-inner">
-          <div class="photo"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMzAwIj4KPGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJzIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZGJlNmYyIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZWVmM2Y4Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiBmaWxsPSJ1cmwoI3MpIi8+CjxjaXJjbGUgY3g9IjMzMCIgY3k9IjYwIiByPSIyNiIgZmlsbD0iI0Y1REQ2NiIgb3BhY2l0eT0iLjg1Ii8+CjxyZWN0IHk9IjIxNSIgd2lkdGg9IjQwMCIgaGVpZ2h0PSI4NSIgZmlsbD0iI2NiZDVlMSIvPjxyZWN0IHk9IjIxNSIgd2lkdGg9IjQwMCIgaGVpZ2h0PSI2IiBmaWxsPSIjOTRhM2I4Ii8+CjxlbGxpcHNlIGN4PSIxNTAiIGN5PSIyMTUiIHJ4PSI4NiIgcnk9IjEyIiBmaWxsPSIjYjZjMmQxIi8+CjxyZWN0IHg9IjY0IiB5PSIxMDUiIHdpZHRoPSIxNzIiIGhlaWdodD0iMTEyIiByeD0iNiIgZmlsbD0iI2UyZThmMCIgc3Ryb2tlPSIjMzY1OThBIiBzdHJva2Utd2lkdGg9IjMiLz4KPGVsbGlwc2UgY3g9IjE1MCIgY3k9IjEwNSIgcng9Ijg2IiByeT0iMTYiIGZpbGw9IiNmOGZhZmMiIHN0cm9rZT0iIzM2NTk4QSIgc3Ryb2tlLXdpZHRoPSIzIi8+CjxwYXRoIGQ9Ik02NCAxNTBoMTcyTTY0IDE4NWgxNzIiIHN0cm9rZT0iIzM2NTk4QSIgc3Ryb2tlLXdpZHRoPSIyIiBvcGFjaXR5PSIuMzUiLz4KPHJlY3QgeD0iMTIwIiB5PSIxNjAiIHdpZHRoPSI2MCIgaGVpZ2h0PSIyNCIgcng9IjQiIGZpbGw9IiNGNURENjYiLz4KPHBhdGggZD0iTTMwMCAyMTVWNzBoMTB2MTQ1eiIgZmlsbD0iIzM2NTk4QSIvPjxwYXRoIGQ9Ik0yOTYgNzBoMTA4djlIMjk2eiIgZmlsbD0iIzM2NTk4QSIvPgo8cGF0aCBkPSJNMzgwIDc5djM0IiBzdHJva2U9IiMzNjU5OEEiIHN0cm9rZS13aWR0aD0iNCIvPjxyZWN0IHg9IjM2OCIgeT0iMTEzIiB3aWR0aD0iMjYiIGhlaWdodD0iMTgiIHJ4PSIzIiBmaWxsPSIjRjVERDY2Ii8+CjxwYXRoIGQ9Ik0yNjIgMjE1di00MmgzMHY0MnoiIGZpbGw9IiM5NGEzYjgiLz48cmVjdCB4PSIyNTYiIHk9IjE2NyIgd2lkdGg9IjQyIiBoZWlnaHQ9IjEwIiByeD0iMyIgZmlsbD0iIzM2NTk4QSIvPgo8L3N2Zz4=" alt="Site overview"><div class="pc">Digester tank erection</div><div class="pd">Site overview \u00b7 24 Jul 2026</div></div>
-          <div class="photo"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMzAwIj4KPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNlZWYyZjciLz48cmVjdCB5PSIyMTAiIHdpZHRoPSI0MDAiIGhlaWdodD0iOTAiIGZpbGw9IiNkN2RlZTciLz4KPGcgc3Ryb2tlPSIjMzY1OThBIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9IiNmMWY1ZjkiPgo8cmVjdCB4PSI0MCIgeT0iMTUwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQyIiByeD0iMjEiLz48cmVjdCB4PSI0MCIgeT0iMTAwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQyIiByeD0iMjEiLz4KPHJlY3QgeD0iNzAiIHk9IjUwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQyIiByeD0iMjEiLz4KPC9nPgo8ZyBmaWxsPSIjRjVERDY2IiBzdHJva2U9IiMzNjU5OEEiIHN0cm9rZS13aWR0aD0iMyI+CjxjaXJjbGUgY3g9IjQwIiBjeT0iMTcxIiByPSIyMSIvPjxjaXJjbGUgY3g9IjQwIiBjeT0iMTIxIiByPSIyMSIvPjxjaXJjbGUgY3g9IjcwIiBjeT0iNzEiIHI9IjIxIi8+CjwvZz4KPGcgc3Ryb2tlPSIjMzY1OThBIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9IiNmOGZhZmMiPgo8cmVjdCB4PSIyMzAiIHk9IjEyMCIgd2lkdGg9IjEzMCIgaGVpZ2h0PSIzNCIgcng9IjE3Ii8+PHJlY3QgeD0iMjMwIiB5PSIxNjQiIHdpZHRoPSIxMzAiIGhlaWdodD0iMzQiIHJ4PSIxNyIvPgo8L2c+CjxnIGZpbGw9IiNlMmU4ZjAiIHN0cm9rZT0iIzM2NTk4QSIgc3Ryb2tlLXdpZHRoPSIzIj48Y2lyY2xlIGN4PSIzNjAiIGN5PSIxMzciIHI9IjE3Ii8+PGNpcmNsZSBjeD0iMzYwIiBjeT0iMTgxIiByPSIxNyIvPjwvZz4KPHJlY3QgeD0iMjQiIHk9IjE5NiIgd2lkdGg9IjE4MCIgaGVpZ2h0PSIxNCIgcng9IjQiIGZpbGw9IiMzNjU5OEEiIG9wYWNpdHk9Ii41NSIvPgo8cmVjdCB4PSIyMTYiIHk9IjIwMCIgd2lkdGg9IjE2MCIgaGVpZ2h0PSIxMCIgcng9IjQiIGZpbGw9IiMzNjU5OEEiIG9wYWNpdHk9Ii40Ii8+Cjwvc3ZnPg==" alt="Piping spools"><div class="pc">Piping spools received</div><div class="pd">Stores yard \u00b7 26 Jul 2026</div></div>
-          <div class="photo"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMzAwIj4KPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNlOGVlZjUiLz48cmVjdCB5PSIyMzAiIHdpZHRoPSI0MDAiIGhlaWdodD0iNzAiIGZpbGw9IiNjYmQ1ZTEiLz4KPHJlY3QgeD0iMTEwIiB5PSI2MCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSIxNzAiIHJ4PSIxNCIgZmlsbD0iI2YxZjVmOSIgc3Ryb2tlPSIjMzY1OThBIiBzdHJva2Utd2lkdGg9IjMiLz4KPGVsbGlwc2UgY3g9IjIwMCIgY3k9IjYwIiByeD0iOTAiIHJ5PSIxOCIgZmlsbD0iI2ZiZmRmZiIgc3Ryb2tlPSIjMzY1OThBIiBzdHJva2Utd2lkdGg9IjMiLz4KPHJlY3QgeD0iMTEwIiB5PSIxMzAiIHdpZHRoPSIxODAiIGhlaWdodD0iMTgiIGZpbGw9IiNGNURENjYiIG9wYWNpdHk9Ii45Ii8+CjxyZWN0IHg9IjE1MCIgeT0iMTcwIiB3aWR0aD0iNDYiIGhlaWdodD0iMzQiIHJ4PSI1IiBmaWxsPSIjZmZmIiBzdHJva2U9IiMzNjU5OEEiIHN0cm9rZS13aWR0aD0iMyIvPgo8ZyBzdHJva2U9IiMzNjU5OEEiIHN0cm9rZS13aWR0aD0iNCIgb3BhY2l0eT0iLjgiPgo8cGF0aCBkPSJNODYgNjB2MTcwTTMxNCA2MHYxNzBNODYgMTA1aDIyOE04NiAxNjBoMjI4TTg2IDIxNWgyMjgiLz4KPC9nPgo8ZyBzdHJva2U9IiNGNURENjYiIHN0cm9rZS13aWR0aD0iNSI+PHBhdGggZD0iTTg2IDgyaDIyOE04NiAxMzdoMjI4TTg2IDE5MmgyMjgiLz48L2c+CjxjaXJjbGUgY3g9IjMzMCIgY3k9IjE5NiIgcj0iMTYiIGZpbGw9IiNGNURENjYiIHN0cm9rZT0iIzM2NTk4QSIgc3Ryb2tlLXdpZHRoPSIzIi8+CjxwYXRoIGQ9Ik0zMzAgMTg2djEwbDcgNSIgc3Ryb2tlPSIjMzY1OThBIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4=" alt="Vessel fabrication"><div class="pc">Gas holder shell under fabrication</div><div class="pd">Vendor works \u00b7 28 Jul 2026</div></div>
-          <div class="fold-note">Sample images \u2014 live site photographs will load from SitePulse.</div>
-        </div>
-      </div>
-    </div>
 
     <a class="cta-banner" href="https://mmt.venwiz.com/dashboard-custom/6a54737446d797f4fdf7a3b3" target="_blank" rel="noopener">
       <span class="cta-text">For detailed review, log in to <u>mmt.venwiz.com</u></span>
@@ -365,33 +317,14 @@ const esc = t => String(t==null?"":t).replace(/&/g,"&amp;").replace(/</g,"&lt;")
 
 const ICONS = {
   heart:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 20.3 4.6 12.9a4.8 4.8 0 1 1 7.4-6 4.8 4.8 0 1 1 7.4 6Z"/></svg>',
-  /* BPCL two-tone set - gold bodies, navy detail */
-  scurve:'<svg viewBox="0 0 32 32">'
-    +'<g fill="var(--gold)"><rect x="3" y="19" width="4" height="9" rx="1.4"/><rect x="9" y="15" width="4" height="13" rx="1.4"/>'
-    +'<rect x="15" y="10" width="4" height="18" rx="1.4"/><rect x="21" y="7" width="4" height="21" rx="1.4"/></g>'
-    +'<path d="M5 24C10.5 24 11 12.5 17 12.5S22 6.5 27 6.5" fill="none" stroke="var(--navy)" stroke-width="2.2" stroke-linecap="round"/>'
-    +'<circle cx="5" cy="24" r="2.4" fill="#fff" stroke="var(--navy)" stroke-width="1.8"/>'
-    +'<circle cx="27" cy="6.5" r="2.4" fill="#fff" stroke="var(--navy)" stroke-width="1.8"/></svg>',
-  calclock:'<svg viewBox="0 0 32 32">'
-    +'<rect x="2" y="6" width="23" height="21" rx="3.5" fill="var(--gold)"/>'
-    +'<rect x="2" y="6" width="23" height="6" rx="3.5" fill="var(--navy)" opacity=".2"/>'
-    +'<g fill="var(--navy)"><rect x="6.5" y="2.5" width="3.2" height="6.5" rx="1.6"/><rect x="17.5" y="2.5" width="3.2" height="6.5" rx="1.6"/></g>'
-    +'<g fill="#fff" opacity=".95"><rect x="5.5" y="14.5" width="4" height="3.4" rx="1"/><rect x="11.5" y="14.5" width="4" height="3.4" rx="1"/>'
-    +'<rect x="5.5" y="20" width="4" height="3.4" rx="1"/><rect x="11.5" y="20" width="4" height="3.4" rx="1"/></g>'
-    +'<circle cx="23" cy="22" r="8" fill="#fff" stroke="var(--navy)" stroke-width="2.2"/>'
-    +'<path d="M23 17.5V22l3 1.8" fill="none" stroke="var(--navy)" stroke-width="2.2" stroke-linecap="round"/></svg>',
-  rupee:'<svg viewBox="0 0 32 32">'
-    +'<circle cx="16" cy="16" r="14" fill="var(--gold)" opacity=".55"/>'
-    +'<g fill="none" stroke="var(--navy)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">'
-    +'<path d="M10 8h12M10 13h12M10 18h4"/><path d="M14 8c5.5 0 5.5 10 0 10"/><path d="M10 18l9 8"/></g></svg>',
-  alert:'<svg viewBox="0 0 32 32">'
-    +'<path d="M14.2 4.6 3.6 23a2.4 2.4 0 0 0 2.1 3.6h21.2A2.4 2.4 0 0 0 29 23L18.4 4.6a2.4 2.4 0 0 0-4.2 0Z" fill="var(--gold)" stroke="var(--navy)" stroke-width="2"/>'
-    +'<path d="M16.3 11.5v6" stroke="var(--navy)" stroke-width="2.6" stroke-linecap="round"/>'
-    +'<circle cx="16.3" cy="21.6" r="1.6" fill="var(--navy)"/></svg>',
-  allclear:'<svg viewBox="0 0 32 32">'
-    +'<circle cx="16" cy="16" r="12.5" fill="var(--gold)" opacity=".5" stroke="var(--navy)" stroke-width="2"/>'
-    +'<path d="m10.5 16.4 3.8 3.8 7.4-8" fill="none" stroke="var(--navy)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-  photos:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="15" rx="2.5"/><circle cx="8.5" cy="10" r="1.6"/><path d="m4 17 5-5 4 4 3-2.5 4 3.5"/></svg>',
+  /* S-curve: flat start, steep middle, flattening finish - with axes */
+  scurve:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M6 18c5.2 0 3.4-11 8-11 2.6 0 3.4 3 4 4.5"/></svg>',
+  /* finish flag for completion date */
+  flag:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V3"/><path d="M5 4h11.5l-2.2 3.5L16.5 11H5"/></svg>',
+  rupee:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12M6 8h12M6 13h3M6 13l9 8"/><path d="M9 13c5.5 0 5.5-10 0-10"/></svg>',
+  warn:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 4.1 2.9 17a2 2 0 0 0 1.7 3h14.8a2 2 0 0 0 1.7-3L13.7 4.1a2 2 0 0 0-3.4 0Z"/><path d="M12 9.5v4M12 17h.01"/></svg>',
+  check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 4.5-5"/></svg>',
+  clock:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 2"/></svg>',
   up:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17 10 11l4 4 6-6"/><path d="M14 9h6v6"/></svg>',
   down:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7l6 6 4-4 6 6"/><path d="M14 15h6v-6"/></svg>',
   flat:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h13"/><path d="m14 8 4 4-4 4"/></svg>'
@@ -417,7 +350,7 @@ function renderDash(m){
   const nIss=m.openIssues;
   const issColor = nIss===0 ? "var(--green)" : "var(--red)";
   const issSoft  = nIss===0 ? "var(--green-soft)" : "var(--red-soft)";
-  const issIcon  = nIss===0 ? ICONS.allclear : ICONS.alert;
+  const issIcon  = nIss===0 ? ICONS.check : ICONS.warn;
   const issVal   = nIss===0 ? "No issues" : nIss+(nIss===1?" issue":" issues");
 
   const delayTxt = m.done ? '<span class="g">Completed</span>'
@@ -426,7 +359,7 @@ function renderDash(m){
   document.getElementById("stage").innerHTML =
     /* top-left : progress */
     '<div class="qcard q1">'
-      +chipEl(ICONS.scurve, "var(--navy)", "var(--navy-tint)")
+      +chipEl(ICONS.scurve, m.status.color, m.status.soft)
       +'<div class="txt">'
         +'<div class="cap">Project Progress</div>'
         +'<div class="val" id="pctVal">0%</div>'
@@ -436,7 +369,7 @@ function renderDash(m){
     +'</div>'
     /* top-right : estimated completion */
     +'<div class="qcard q2">'
-      +chipEl(ICONS.calclock, "var(--navy)", "var(--navy-tint)")
+      +chipEl(ICONS.flag, m.status.color, m.status.soft)
       +'<div class="txt">'
         +'<div class="cap">Est. Completion</div>'
         +'<div class="val">'+fmtDateShortYr(m.endDate)+'</div>'
@@ -446,7 +379,7 @@ function renderDash(m){
     +'</div>'
     /* bottom-left : budget (STATIC sample - no budget field in the API yet) */
     +'<div class="qcard q3">'
-      +chipEl(ICONS.rupee, "var(--navy)", "var(--gold-tint)")
+      +chipEl(ICONS.rupee, "var(--blue)", "var(--blue-soft)")
       +'<div class="txt">'
         +'<div class="cap">Financial Progress</div>'
         +'<div class="val">8.2%</div>'
@@ -465,7 +398,7 @@ function renderDash(m){
     /* spokes + centre orb */
     +'<div class="spoke s1"></div><div class="spoke s2"></div><div class="spoke s3"></div><div class="spoke s4"></div>'
     +'<div class="orb">'
-      +'<svg class="dashring" viewBox="0 0 138 138"><circle cx="69" cy="69" r="67"/></svg>'
+      +'<svg class="dashring" viewBox="0 0 132 132"><circle cx="66" cy="66" r="64"/></svg>'
       +'<div class="ring"></div>'
       +'<div class="heart">'+ICONS.heart+'</div>'
       +'<div class="orb-cap">Project Health</div>'
@@ -490,13 +423,6 @@ function renderDash(m){
       if(p<1) requestAnimationFrame(step); else el.textContent=pct1(m.act);
     })(t0);
   }
-}
-
-/* ---------- foldable photo section ---------- */
-function toggleFold(){
-  const f=document.getElementById("fold");
-  const open=f.classList.toggle("open");
-  f.querySelector(".fold-head").setAttribute("aria-expanded", open?"true":"false");
 }
 
 /* ---------- always open at the top ---------- */
