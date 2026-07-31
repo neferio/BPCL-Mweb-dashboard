@@ -23,35 +23,21 @@
     /* BPCL brand */
     --gold:#F5DD66; --gold-tint:#FCF5D5; --navy:#36598A; --navy-tint:#EAF0F9; --navy-deep:#22406B;
     --stat:var(--blue); --stat-soft:var(--blue-soft);   /* set at runtime from status */
-    /* ---- responsive scale system ----
-       --W is the true column width on any device (phone width, capped at the app column).
-       Every size below derives from it, with a floor and a ceiling, so the layout holds
-       at 1x / 1.25x / 1.5x display scaling and on any screen from 320px up. */
-    --W: min(100vw, 430px);
-    /* Every size is the approved 430px value divided by 430, so the whole design
-       scales as one piece. Proportions are identical on a 320px phone, a 393px
-       iPhone or a 430px Pro Max - nothing grows or shrinks relative to anything
-       else, which is what kept the orb clashing with card text before. */
-    --gapmid: max(7px,   calc(var(--W) * 0.02093));   /*   9px @430 */
-    --orb:    clamp(104px, calc(var(--W) * 0.34884), 150px);  /* 150px @430 */
-    --cardh:  clamp(152px, calc(var(--W) * 0.40000), 172px);  /* 172px @430 */
-    --cardp:  clamp(10px,  calc(var(--W) * 0.03023), 13px);   /*  13px @430 */
-    --chipd:  clamp(43px,  calc(var(--W) * 0.12093), 52px);   /*  52px @430 */
   }
   *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   body{
     background:var(--canvas);color:var(--ink);
     font-family:"Poppins",ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
     font-size:15px;line-height:1.4;-webkit-font-smoothing:antialiased;
-    padding:0 calc(var(--cardp) + env(safe-area-inset-right)) calc(22px + env(safe-area-inset-bottom)) calc(var(--cardp) + env(safe-area-inset-left));
+    padding:0 calc(13px + env(safe-area-inset-right)) calc(22px + env(safe-area-inset-bottom)) calc(13px + env(safe-area-inset-left));
   }
   .wrap{max-width:430px;margin:0 auto}
 
   /* ---------------- header ---------------- */
   header{
     position:sticky;top:0;z-index:20;background:var(--card);
-    margin:0 calc(-1 * var(--cardp) - env(safe-area-inset-right)) 13px calc(-1 * var(--cardp) - env(safe-area-inset-left));
-    padding:calc(20px + env(safe-area-inset-top)) calc(var(--cardp) + env(safe-area-inset-right)) 11px calc(var(--cardp) + env(safe-area-inset-left));
+    margin:0 calc(-13px - env(safe-area-inset-right)) 13px calc(-13px - env(safe-area-inset-left));
+    padding:calc(20px + env(safe-area-inset-top)) calc(13px + env(safe-area-inset-right)) 11px calc(13px + env(safe-area-inset-left));
     border-bottom:1px solid var(--border);
   }
   .logo-row{margin:0 0 9px}
@@ -79,12 +65,12 @@
   .dots i.ghost{width:6px;background:rgba(255,255,255,.4)}
 
   /* ---------------- hub stage ---------------- */
-  .stage{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:var(--gapmid)}
+  .stage{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:9px}
   .qcard{
     position:relative;z-index:2;
-    background:var(--card);border:2px solid var(--gold);border-radius:calc(var(--W) * .03953);
-    padding:var(--cardp);min-height:var(--cardh);
-    display:flex;flex-direction:column;gap:var(--gapmid);
+    background:var(--card);border:2px solid var(--gold);border-radius:17px;
+    padding:13px;min-height:172px;
+    display:flex;flex-direction:column;gap:9px;
     opacity:0;transform:translateY(10px) scale(.97);
     animation:rise .5s cubic-bezier(.2,.7,.3,1) forwards;
   }
@@ -95,19 +81,19 @@
   .q4{align-items:flex-end;  text-align:right;animation-delay:.52s}
   .txt{display:flex;flex-direction:column;gap:3px;width:100%}
 
-  .chip{width:var(--chipd);height:var(--chipd);border-radius:calc(var(--chipd) * .269);background:var(--navy-tint);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
-  .chip svg{width:60%;height:60%}
+  .chip{width:52px;height:52px;border-radius:14px;background:var(--navy-tint);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+  .chip svg{width:31px;height:31px}
   .chip.gold{background:var(--gold-tint)}
   .chip.ok{background:var(--green-soft)}
   .chip.bad{background:var(--red-soft)}
 
-  .cap{font-size:clamp(8px, calc(var(--W) * .02326), 10px);font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:#5b6b80}
-  .val{font-size:clamp(18px, calc(var(--W) * .05349), 23px);font-weight:700;letter-spacing:-.025em;color:var(--navy-deep);line-height:1.12}
+  .cap{font-size:10px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:#5b6b80}
+  .val{font-size:23px;font-weight:700;letter-spacing:-.025em;color:var(--navy-deep);line-height:1.12}
   .val.ok{color:var(--green)}
   .val.bad{color:var(--red)}
-  .sub{font-size:clamp(9px, calc(var(--W) * .02558), 11px);font-weight:400;color:var(--muted);line-height:1.35}
+  .sub{font-size:11px;font-weight:400;color:var(--muted);line-height:1.35}
   .pill{
-    display:inline-block;font-size:clamp(8.5px, calc(var(--W) * .02326), 10px);font-weight:600;border-radius:99px;padding:3px 9px;margin-top:3px;
+    display:inline-block;font-size:10px;font-weight:600;border-radius:99px;padding:3px 9px;margin-top:3px;
   }
   .pill.behind{color:var(--red);background:var(--red-soft)}
   .pill.ahead{color:var(--green);background:var(--green-soft)}
@@ -115,35 +101,32 @@
   /* ---------------- centre orb ---------------- */
   .orb{
     position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:6;
-    width:var(--orb);height:var(--orb);border-radius:50%;
-    background:var(--stat);border:clamp(4px, calc(var(--W) * .01163), 5px) solid var(--gold);
+    width:150px;height:150px;border-radius:50%;
+    background:var(--stat);border:5px solid var(--gold);
     box-shadow:0 8px 26px rgba(15,23,42,.18);
     display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;
     opacity:0;animation:orbIn .55s cubic-bezier(.2,.8,.3,1.2) forwards .12s;
   }
   @keyframes orbIn{from{opacity:0;transform:translate(-50%,-50%) scale(.72)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
   .ring{
-    position:absolute;left:50%;top:50%;width:var(--orb);height:var(--orb);
-    margin:calc(var(--orb) / -2) 0 0 calc(var(--orb) / -2);
+    position:absolute;left:50%;top:50%;width:150px;height:150px;margin:-75px 0 0 -75px;
     border-radius:50%;border:2px solid var(--stat);pointer-events:none;z-index:5;
     animation:ripple 2.8s ease-out infinite;
   }
   @keyframes ripple{0%{transform:scale(1);opacity:.35}100%{transform:scale(1.2);opacity:0}}
   .dashring{
-    position:absolute;left:50%;top:50%;
-    width:calc(var(--orb) * 1.24);height:calc(var(--orb) * 1.24);
-    margin:calc(var(--orb) * -.62) 0 0 calc(var(--orb) * -.62);
+    position:absolute;left:50%;top:50%;width:186px;height:186px;margin:-93px 0 0 -93px;
     pointer-events:none;z-index:4;animation:sweep 22s linear infinite;
   }
   .dashring circle{fill:none;stroke:#a9c0de;stroke-width:2.5;stroke-dasharray:9 11;stroke-linecap:round}
   @keyframes sweep{to{transform:rotate(360deg)}}
   .heart{color:#fff;display:flex;animation:beat 1.7s ease-in-out infinite}
-  .heart svg{width:clamp(33px, calc(var(--W) * .10233), 44px);height:auto}
+  .heart svg{width:44px;height:44px}
   @keyframes beat{0%,100%{transform:scale(1)}12%{transform:scale(1.2)}24%{transform:scale(1)}36%{transform:scale(1.12)}48%{transform:scale(1)}}
-  .orb-cap{font-size:clamp(10px, calc(var(--W) * .02791), 12px);font-weight:500;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.9);margin-top:5px}
-  .orb-val{font-size:clamp(13px, calc(var(--W) * .03721), 16px);font-weight:700;letter-spacing:-.01em;color:#fff;text-align:center;padding:0 10px;line-height:1.2}
-  .orb-trend{font-size:clamp(9.5px, calc(var(--W) * .02558), 11px);font-weight:600;color:var(--gold);display:flex;align-items:center;gap:3px;margin-top:2px}
-  .orb-trend svg{width:1em;height:1em}
+  .orb-cap{font-size:12px;font-weight:500;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.9);margin-top:5px}
+  .orb-val{font-size:16px;font-weight:700;letter-spacing:-.01em;color:#fff;text-align:center;padding:0 10px;line-height:1.2}
+  .orb-trend{font-size:11px;font-weight:600;color:var(--gold);display:flex;align-items:center;gap:3px;margin-top:2px}
+  .orb-trend svg{width:12px;height:12px}
 
   /* ---------------- velocity pill ---------------- */
   .velocity{
@@ -223,9 +206,14 @@
   @keyframes spin{to{transform:rotate(360deg)}}
   .btn{appearance:none;border:1px solid var(--border);background:var(--card);color:var(--ink);font:inherit;font-weight:600;font-size:14px;padding:10px 26px;border-radius:12px;cursor:pointer}
 
-  /* extra-tall screens (9:21 and taller): let the cards breathe */
-  @media (min-height:820px){
-    :root{ --cardh: clamp(158px, calc(var(--W) * .42), 180px); }
+  @media (max-width:350px){
+    .orb{width:128px;height:128px;border-width:4px}
+    .ring{width:128px;height:128px;margin:-64px 0 0 -64px}
+    .dashring{width:160px;height:160px;margin:-80px 0 0 -80px}
+    .heart svg{width:36px;height:36px}
+    .qcard{min-height:158px;padding:11px}
+    .chip{width:46px;height:46px}.chip svg{width:27px;height:27px}
+    .val{font-size:20px}
   }
   @media (prefers-reduced-motion:reduce){
     .heart,.ring,.dashring,.fresh-chip .dot{animation:none}
