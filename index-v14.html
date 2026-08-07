@@ -21,7 +21,7 @@
     --grey:#64748b;   --grey-soft:#f1f5f9;
     --track:#e2e8f0;
     /* BPCL brand */
-    --gold:#FEC32C; --gold-tint:#FFF2D4; --navy:#023B64; --navy-tint:#E2ECF3; --navy-deep:#01243D;
+    --gold:#F5DD66; --gold-tint:#FCF5D5; --navy:#36598A; --navy-tint:#EAF0F9; --navy-deep:#22406B;
     --stat:var(--blue); --stat-soft:var(--blue-soft);   /* set at runtime from status */
     /* ---- responsive scale system ----
        --W is the true column width on any device (phone width, capped at the app column).
@@ -69,8 +69,8 @@
   /* ---------------- project bar ---------------- */
   .proj-bar{
     display:flex;align-items:center;gap:12px;
-    background:var(--navy);border:2px solid #fff;border-radius:15px;padding:13px 15px;margin-bottom:10px;
-    box-shadow:0 6px 18px rgba(2,59,100,.32);
+    background:var(--navy);border-radius:15px;padding:14px 16px;margin-bottom:10px;
+    box-shadow:0 3px 12px rgba(34,64,107,.20);
   }
   .proj-txt{flex:1;min-width:0}
   .proj-name{font-size:16px;font-weight:700;letter-spacing:-.02em;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -119,7 +119,7 @@
   .chip.bad{background:var(--red-soft)}
 
   .cap{font-size:clamp(8px, calc(var(--W) * .02326), 10px);font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:#5b6b80}
-  .val{font-size:clamp(18px, calc(var(--W) * .05349), 23px);font-weight:700;letter-spacing:-.025em;color:var(--navy);line-height:1.12}
+  .val{font-size:clamp(18px, calc(var(--W) * .05349), 23px);font-weight:700;letter-spacing:-.025em;color:var(--navy-deep);line-height:1.12}
   .val.ok{color:var(--green)}
   .val.bad{color:var(--red)}
   .sub{font-size:clamp(9px, calc(var(--W) * .02558), 11px);font-weight:400;color:var(--muted);line-height:1.35}
@@ -135,8 +135,7 @@
     width:var(--orb);height:var(--orb);border-radius:50%;
     /* fixed BPCL brand blue - deliberately NOT status-driven */
     background:var(--navy);border:clamp(4px, calc(var(--W) * .01163), 5px) solid var(--gold);
-    box-shadow:0 10px 30px rgba(15,23,42,.32), 0 3px 10px rgba(15,23,42,.16);
-    padding-bottom:calc(var(--orb) * .07);   /* lifts the heart/label block off centre */
+    box-shadow:0 8px 26px rgba(15,23,42,.18);
     display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;
     opacity:0;animation:orbIn .55s cubic-bezier(.2,.8,.3,1.2) forwards .12s;
   }
@@ -147,14 +146,14 @@
     border-radius:50%;border:2px solid var(--navy);pointer-events:none;z-index:5;
     animation:ripple 2.8s ease-out infinite;
   }
-  @keyframes ripple{0%{transform:scale(1);opacity:.35}100%{transform:scale(1.11);opacity:0}}
+  @keyframes ripple{0%{transform:scale(1);opacity:.35}100%{transform:scale(1.2);opacity:0}}
   .dashring{
     position:absolute;left:50%;top:50%;
-    width:calc(var(--orb) * 1.13);height:calc(var(--orb) * 1.13);
-    margin:calc(var(--orb) * -.565) 0 0 calc(var(--orb) * -.565);
+    width:calc(var(--orb) * 1.24);height:calc(var(--orb) * 1.24);
+    margin:calc(var(--orb) * -.62) 0 0 calc(var(--orb) * -.62);
     pointer-events:none;z-index:4;animation:sweep 22s linear infinite;
   }
-  .dashring circle{fill:none;stroke:#9BB8CE;stroke-width:2.5;stroke-dasharray:9 11;stroke-linecap:round}
+  .dashring circle{fill:none;stroke:#a9c0de;stroke-width:2.5;stroke-dasharray:9 11;stroke-linecap:round}
   @keyframes sweep{to{transform:rotate(360deg)}}
   .heart{color:#fff;display:flex;animation:beat 1.7s ease-in-out infinite}
   .heart svg{width:clamp(33px, calc(var(--W) * .10233), 44px);height:auto}
@@ -175,7 +174,7 @@
     width:100%;appearance:none;border:none;cursor:pointer;font:inherit;margin-top:10px;
     display:flex;align-items:center;gap:11px;
     background:var(--navy);color:#fff;border-radius:14px;padding:14px 16px;
-    box-shadow:0 3px 12px rgba(2,59,100,.24);
+    box-shadow:0 3px 12px rgba(34,64,107,.20);
   }
   .fold-head:active{transform:scale(.99)}
   .nav-btn{justify-content:center;gap:8px}
@@ -233,7 +232,7 @@
   /* ---------------- footer ---------------- */
   .cta-banner{
     margin-top:10px;text-decoration:none;display:flex;align-items:center;justify-content:space-between;gap:10px;
-    background:#01243D;border-left:5px solid #0CA65D;border-radius:14px;padding:14px 16px;
+    background:#1b3054;border-left:5px solid #0CA65D;border-radius:14px;padding:14px 16px;
   }
   .cta-text{font-size:12.5px;font-weight:400;color:#fff;line-height:1.35}
   .cta-text u{font-weight:600;color:#5fd39a;text-decoration-color:#5fd39a}
@@ -278,7 +277,7 @@
 
     <!-- project selector: one project today, built to hold many -->
     <div class="proj-bar">
-      <button class="back-btn" onclick="goOverall()" aria-label="Back to overall progress">
+      <button class="back-btn" onclick="goOverall()" aria-label="Back to overall project progress">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
       </button>
       <div class="proj-txt">
@@ -292,7 +291,7 @@
     <div class="velocity">Health trend based on avg. work velocity, last 7 days</div>
 
     <button class="fold-head nav-btn" onclick="goEPC()">
-      <span class="fold-title">Construction Progress</span>
+      <span class="fold-title">EPC Progress</span>
       <span class="fold-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></span>
     </button>
 
@@ -323,9 +322,9 @@
   </div>
   <div class="curtain-body">
     <div class="photo-grid">
-      <div class="photo"><img loading="lazy" decoding="async" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMzAwIj4KPGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJzIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZGJlNmYyIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZWVmM2Y4Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiBmaWxsPSJ1cmwoI3MpIi8+CjxjaXJjbGUgY3g9IjMzMCIgY3k9IjYwIiByPSIyNiIgZmlsbD0iI0ZFQzMyQyIgb3BhY2l0eT0iLjg1Ii8+CjxyZWN0IHk9IjIxNSIgd2lkdGg9IjQwMCIgaGVpZ2h0PSI4NSIgZmlsbD0iI2NiZDVlMSIvPjxyZWN0IHk9IjIxNSIgd2lkdGg9IjQwMCIgaGVpZ2h0PSI2IiBmaWxsPSIjOTRhM2I4Ii8+CjxlbGxpcHNlIGN4PSIxNTAiIGN5PSIyMTUiIHJ4PSI4NiIgcnk9IjEyIiBmaWxsPSIjYjZjMmQxIi8+CjxyZWN0IHg9IjY0IiB5PSIxMDUiIHdpZHRoPSIxNzIiIGhlaWdodD0iMTEyIiByeD0iNiIgZmlsbD0iI2UyZThmMCIgc3Ryb2tlPSIjMDIzQjY0IiBzdHJva2Utd2lkdGg9IjMiLz4KPGVsbGlwc2UgY3g9IjE1MCIgY3k9IjEwNSIgcng9Ijg2IiByeT0iMTYiIGZpbGw9IiNmOGZhZmMiIHN0cm9rZT0iIzAyM0I2NCIgc3Ryb2tlLXdpZHRoPSIzIi8+CjxwYXRoIGQ9Ik02NCAxNTBoMTcyTTY0IDE4NWgxNzIiIHN0cm9rZT0iIzAyM0I2NCIgc3Ryb2tlLXdpZHRoPSIyIiBvcGFjaXR5PSIuMzUiLz4KPHJlY3QgeD0iMTIwIiB5PSIxNjAiIHdpZHRoPSI2MCIgaGVpZ2h0PSIyNCIgcng9IjQiIGZpbGw9IiNGRUMzMkMiLz4KPHBhdGggZD0iTTMwMCAyMTVWNzBoMTB2MTQ1eiIgZmlsbD0iIzAyM0I2NCIvPjxwYXRoIGQ9Ik0yOTYgNzBoMTA4djlIMjk2eiIgZmlsbD0iIzAyM0I2NCIvPgo8cGF0aCBkPSJNMzgwIDc5djM0IiBzdHJva2U9IiMwMjNCNjQiIHN0cm9rZS13aWR0aD0iNCIvPjxyZWN0IHg9IjM2OCIgeT0iMTEzIiB3aWR0aD0iMjYiIGhlaWdodD0iMTgiIHJ4PSIzIiBmaWxsPSIjRkVDMzJDIi8+CjxwYXRoIGQ9Ik0yNjIgMjE1di00MmgzMHY0MnoiIGZpbGw9IiM5NGEzYjgiLz48cmVjdCB4PSIyNTYiIHk9IjE2NyIgd2lkdGg9IjQyIiBoZWlnaHQ9IjEwIiByeD0iMyIgZmlsbD0iIzAyM0I2NCIvPgo8L3N2Zz4=" alt="Site overview"><div class="pc">Digester tank erection</div><div class="pd">Site overview · 24 Jul 2026</div></div>
-      <div class="photo"><img loading="lazy" decoding="async" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMzAwIj4KPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNlZWYyZjciLz48cmVjdCB5PSIyMTAiIHdpZHRoPSI0MDAiIGhlaWdodD0iOTAiIGZpbGw9IiNkN2RlZTciLz4KPGcgc3Ryb2tlPSIjMDIzQjY0IiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9IiNmMWY1ZjkiPgo8cmVjdCB4PSI0MCIgeT0iMTUwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQyIiByeD0iMjEiLz48cmVjdCB4PSI0MCIgeT0iMTAwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQyIiByeD0iMjEiLz4KPHJlY3QgeD0iNzAiIHk9IjUwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQyIiByeD0iMjEiLz4KPC9nPgo8ZyBmaWxsPSIjRkVDMzJDIiBzdHJva2U9IiMwMjNCNjQiIHN0cm9rZS13aWR0aD0iMyI+CjxjaXJjbGUgY3g9IjQwIiBjeT0iMTcxIiByPSIyMSIvPjxjaXJjbGUgY3g9IjQwIiBjeT0iMTIxIiByPSIyMSIvPjxjaXJjbGUgY3g9IjcwIiBjeT0iNzEiIHI9IjIxIi8+CjwvZz4KPGcgc3Ryb2tlPSIjMDIzQjY0IiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9IiNmOGZhZmMiPgo8cmVjdCB4PSIyMzAiIHk9IjEyMCIgd2lkdGg9IjEzMCIgaGVpZ2h0PSIzNCIgcng9IjE3Ii8+PHJlY3QgeD0iMjMwIiB5PSIxNjQiIHdpZHRoPSIxMzAiIGhlaWdodD0iMzQiIHJ4PSIxNyIvPgo8L2c+CjxnIGZpbGw9IiNlMmU4ZjAiIHN0cm9rZT0iIzAyM0I2NCIgc3Ryb2tlLXdpZHRoPSIzIj48Y2lyY2xlIGN4PSIzNjAiIGN5PSIxMzciIHI9IjE3Ii8+PGNpcmNsZSBjeD0iMzYwIiBjeT0iMTgxIiByPSIxNyIvPjwvZz4KPHJlY3QgeD0iMjQiIHk9IjE5NiIgd2lkdGg9IjE4MCIgaGVpZ2h0PSIxNCIgcng9IjQiIGZpbGw9IiMwMjNCNjQiIG9wYWNpdHk9Ii41NSIvPgo8cmVjdCB4PSIyMTYiIHk9IjIwMCIgd2lkdGg9IjE2MCIgaGVpZ2h0PSIxMCIgcng9IjQiIGZpbGw9IiMwMjNCNjQiIG9wYWNpdHk9Ii40Ii8+Cjwvc3ZnPg==" alt="Piping spools"><div class="pc">Piping spools received</div><div class="pd">Stores yard · 26 Jul 2026</div></div>
-      <div class="photo"><img loading="lazy" decoding="async" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMzAwIj4KPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNlOGVlZjUiLz48cmVjdCB5PSIyMzAiIHdpZHRoPSI0MDAiIGhlaWdodD0iNzAiIGZpbGw9IiNjYmQ1ZTEiLz4KPHJlY3QgeD0iMTEwIiB5PSI2MCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSIxNzAiIHJ4PSIxNCIgZmlsbD0iI2YxZjVmOSIgc3Ryb2tlPSIjMDIzQjY0IiBzdHJva2Utd2lkdGg9IjMiLz4KPGVsbGlwc2UgY3g9IjIwMCIgY3k9IjYwIiByeD0iOTAiIHJ5PSIxOCIgZmlsbD0iI2ZiZmRmZiIgc3Ryb2tlPSIjMDIzQjY0IiBzdHJva2Utd2lkdGg9IjMiLz4KPHJlY3QgeD0iMTEwIiB5PSIxMzAiIHdpZHRoPSIxODAiIGhlaWdodD0iMTgiIGZpbGw9IiNGRUMzMkMiIG9wYWNpdHk9Ii45Ii8+CjxyZWN0IHg9IjE1MCIgeT0iMTcwIiB3aWR0aD0iNDYiIGhlaWdodD0iMzQiIHJ4PSI1IiBmaWxsPSIjZmZmIiBzdHJva2U9IiMwMjNCNjQiIHN0cm9rZS13aWR0aD0iMyIvPgo8ZyBzdHJva2U9IiMwMjNCNjQiIHN0cm9rZS13aWR0aD0iNCIgb3BhY2l0eT0iLjgiPgo8cGF0aCBkPSJNODYgNjB2MTcwTTMxNCA2MHYxNzBNODYgMTA1aDIyOE04NiAxNjBoMjI4TTg2IDIxNWgyMjgiLz4KPC9nPgo8ZyBzdHJva2U9IiNGRUMzMkMiIHN0cm9rZS13aWR0aD0iNSI+PHBhdGggZD0iTTg2IDgyaDIyOE04NiAxMzdoMjI4TTg2IDE5MmgyMjgiLz48L2c+CjxjaXJjbGUgY3g9IjMzMCIgY3k9IjE5NiIgcj0iMTYiIGZpbGw9IiNGRUMzMkMiIHN0cm9rZT0iIzAyM0I2NCIgc3Ryb2tlLXdpZHRoPSIzIi8+CjxwYXRoIGQ9Ik0zMzAgMTg2djEwbDcgNSIgc3Ryb2tlPSIjMDIzQjY0IiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4=" alt="Vessel fabrication"><div class="pc">Gas holder shell under fabrication</div><div class="pd">Vendor works · 28 Jul 2026</div></div>
+      <div class="photo"><img loading="lazy" decoding="async" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMzAwIj4KPGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJzIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZGJlNmYyIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZWVmM2Y4Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiBmaWxsPSJ1cmwoI3MpIi8+CjxjaXJjbGUgY3g9IjMzMCIgY3k9IjYwIiByPSIyNiIgZmlsbD0iI0Y1REQ2NiIgb3BhY2l0eT0iLjg1Ii8+CjxyZWN0IHk9IjIxNSIgd2lkdGg9IjQwMCIgaGVpZ2h0PSI4NSIgZmlsbD0iI2NiZDVlMSIvPjxyZWN0IHk9IjIxNSIgd2lkdGg9IjQwMCIgaGVpZ2h0PSI2IiBmaWxsPSIjOTRhM2I4Ii8+CjxlbGxpcHNlIGN4PSIxNTAiIGN5PSIyMTUiIHJ4PSI4NiIgcnk9IjEyIiBmaWxsPSIjYjZjMmQxIi8+CjxyZWN0IHg9IjY0IiB5PSIxMDUiIHdpZHRoPSIxNzIiIGhlaWdodD0iMTEyIiByeD0iNiIgZmlsbD0iI2UyZThmMCIgc3Ryb2tlPSIjMzY1OThBIiBzdHJva2Utd2lkdGg9IjMiLz4KPGVsbGlwc2UgY3g9IjE1MCIgY3k9IjEwNSIgcng9Ijg2IiByeT0iMTYiIGZpbGw9IiNmOGZhZmMiIHN0cm9rZT0iIzM2NTk4QSIgc3Ryb2tlLXdpZHRoPSIzIi8+CjxwYXRoIGQ9Ik02NCAxNTBoMTcyTTY0IDE4NWgxNzIiIHN0cm9rZT0iIzM2NTk4QSIgc3Ryb2tlLXdpZHRoPSIyIiBvcGFjaXR5PSIuMzUiLz4KPHJlY3QgeD0iMTIwIiB5PSIxNjAiIHdpZHRoPSI2MCIgaGVpZ2h0PSIyNCIgcng9IjQiIGZpbGw9IiNGNURENjYiLz4KPHBhdGggZD0iTTMwMCAyMTVWNzBoMTB2MTQ1eiIgZmlsbD0iIzM2NTk4QSIvPjxwYXRoIGQ9Ik0yOTYgNzBoMTA4djlIMjk2eiIgZmlsbD0iIzM2NTk4QSIvPgo8cGF0aCBkPSJNMzgwIDc5djM0IiBzdHJva2U9IiMzNjU5OEEiIHN0cm9rZS13aWR0aD0iNCIvPjxyZWN0IHg9IjM2OCIgeT0iMTEzIiB3aWR0aD0iMjYiIGhlaWdodD0iMTgiIHJ4PSIzIiBmaWxsPSIjRjVERDY2Ii8+CjxwYXRoIGQ9Ik0yNjIgMjE1di00MmgzMHY0MnoiIGZpbGw9IiM5NGEzYjgiLz48cmVjdCB4PSIyNTYiIHk9IjE2NyIgd2lkdGg9IjQyIiBoZWlnaHQ9IjEwIiByeD0iMyIgZmlsbD0iIzM2NTk4QSIvPgo8L3N2Zz4=" alt="Site overview"><div class="pc">Digester tank erection</div><div class="pd">Site overview · 24 Jul 2026</div></div>
+      <div class="photo"><img loading="lazy" decoding="async" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMzAwIj4KPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNlZWYyZjciLz48cmVjdCB5PSIyMTAiIHdpZHRoPSI0MDAiIGhlaWdodD0iOTAiIGZpbGw9IiNkN2RlZTciLz4KPGcgc3Ryb2tlPSIjMzY1OThBIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9IiNmMWY1ZjkiPgo8cmVjdCB4PSI0MCIgeT0iMTUwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQyIiByeD0iMjEiLz48cmVjdCB4PSI0MCIgeT0iMTAwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQyIiByeD0iMjEiLz4KPHJlY3QgeD0iNzAiIHk9IjUwIiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQyIiByeD0iMjEiLz4KPC9nPgo8ZyBmaWxsPSIjRjVERDY2IiBzdHJva2U9IiMzNjU5OEEiIHN0cm9rZS13aWR0aD0iMyI+CjxjaXJjbGUgY3g9IjQwIiBjeT0iMTcxIiByPSIyMSIvPjxjaXJjbGUgY3g9IjQwIiBjeT0iMTIxIiByPSIyMSIvPjxjaXJjbGUgY3g9IjcwIiBjeT0iNzEiIHI9IjIxIi8+CjwvZz4KPGcgc3Ryb2tlPSIjMzY1OThBIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9IiNmOGZhZmMiPgo8cmVjdCB4PSIyMzAiIHk9IjEyMCIgd2lkdGg9IjEzMCIgaGVpZ2h0PSIzNCIgcng9IjE3Ii8+PHJlY3QgeD0iMjMwIiB5PSIxNjQiIHdpZHRoPSIxMzAiIGhlaWdodD0iMzQiIHJ4PSIxNyIvPgo8L2c+CjxnIGZpbGw9IiNlMmU4ZjAiIHN0cm9rZT0iIzM2NTk4QSIgc3Ryb2tlLXdpZHRoPSIzIj48Y2lyY2xlIGN4PSIzNjAiIGN5PSIxMzciIHI9IjE3Ii8+PGNpcmNsZSBjeD0iMzYwIiBjeT0iMTgxIiByPSIxNyIvPjwvZz4KPHJlY3QgeD0iMjQiIHk9IjE5NiIgd2lkdGg9IjE4MCIgaGVpZ2h0PSIxNCIgcng9IjQiIGZpbGw9IiMzNjU5OEEiIG9wYWNpdHk9Ii41NSIvPgo8cmVjdCB4PSIyMTYiIHk9IjIwMCIgd2lkdGg9IjE2MCIgaGVpZ2h0PSIxMCIgcng9IjQiIGZpbGw9IiMzNjU5OEEiIG9wYWNpdHk9Ii40Ii8+Cjwvc3ZnPg==" alt="Piping spools"><div class="pc">Piping spools received</div><div class="pd">Stores yard · 26 Jul 2026</div></div>
+      <div class="photo"><img loading="lazy" decoding="async" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMzAwIj4KPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNlOGVlZjUiLz48cmVjdCB5PSIyMzAiIHdpZHRoPSI0MDAiIGhlaWdodD0iNzAiIGZpbGw9IiNjYmQ1ZTEiLz4KPHJlY3QgeD0iMTEwIiB5PSI2MCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSIxNzAiIHJ4PSIxNCIgZmlsbD0iI2YxZjVmOSIgc3Ryb2tlPSIjMzY1OThBIiBzdHJva2Utd2lkdGg9IjMiLz4KPGVsbGlwc2UgY3g9IjIwMCIgY3k9IjYwIiByeD0iOTAiIHJ5PSIxOCIgZmlsbD0iI2ZiZmRmZiIgc3Ryb2tlPSIjMzY1OThBIiBzdHJva2Utd2lkdGg9IjMiLz4KPHJlY3QgeD0iMTEwIiB5PSIxMzAiIHdpZHRoPSIxODAiIGhlaWdodD0iMTgiIGZpbGw9IiNGNURENjYiIG9wYWNpdHk9Ii45Ii8+CjxyZWN0IHg9IjE1MCIgeT0iMTcwIiB3aWR0aD0iNDYiIGhlaWdodD0iMzQiIHJ4PSI1IiBmaWxsPSIjZmZmIiBzdHJva2U9IiMzNjU5OEEiIHN0cm9rZS13aWR0aD0iMyIvPgo8ZyBzdHJva2U9IiMzNjU5OEEiIHN0cm9rZS13aWR0aD0iNCIgb3BhY2l0eT0iLjgiPgo8cGF0aCBkPSJNODYgNjB2MTcwTTMxNCA2MHYxNzBNODYgMTA1aDIyOE04NiAxNjBoMjI4TTg2IDIxNWgyMjgiLz4KPC9nPgo8ZyBzdHJva2U9IiNGNURENjYiIHN0cm9rZS13aWR0aD0iNSI+PHBhdGggZD0iTTg2IDgyaDIyOE04NiAxMzdoMjI4TTg2IDE5MmgyMjgiLz48L2c+CjxjaXJjbGUgY3g9IjMzMCIgY3k9IjE5NiIgcj0iMTYiIGZpbGw9IiNGNURENjYiIHN0cm9rZT0iIzM2NTk4QSIgc3Ryb2tlLXdpZHRoPSIzIi8+CjxwYXRoIGQ9Ik0zMzAgMTg2djEwbDcgNSIgc3Ryb2tlPSIjMzY1OThBIiBzdHJva2Utd2lkdGg9IjMiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4=" alt="Vessel fabrication"><div class="pc">Gas holder shell under fabrication</div><div class="pd">Vendor works · 28 Jul 2026</div></div>
     </div>
     <div class="drawer-note">Sample images — live site photographs will load from SitePulse.</div>
   </div>
@@ -464,16 +463,16 @@ const VIEWS = {
   overall: {
     pill:"Overall Progress: Project 1 of 1", accent:"var(--gold)", bodyClass:"",
     physical:{ value:"12.15%", plan:"vs. plan 10.07%", delta:"2.08% ahead", ahead:true },
-    completion:{ est:"2027-10-31", plan:"2028-04-19" }, dateLabel:"Agreed:",
+    completion:{ est:"2028-04-19", plan:"2028-04-19" },
     financial:{ value:"9.74%", sub:"of \u20b941.52 Cr sanctioned" },
     issues:0,
     status:"on_track", trend:"Good progress"
   },
   epc: {
-    pill:"Construction Progress", accent:"var(--navy)", bodyClass:"epc",
+    pill:"EPC Progress", accent:"var(--navy)", bodyClass:"epc",
     physical:{ value:"10.56%", plan:"vs. plan 8.44%", delta:"2.13% ahead", ahead:true },
-    completion:{ est:"2027-10-12", plan:"2027-10-19" }, dateLabel:"Scheduled:",
-    financial:{ value:"8.13%", sub:"of \u20b945.14 Cr sanctioned" },
+    completion:{ est:"2027-10-12", plan:"2027-10-19" },
+    financial:{ value:"0%", sub:"of \u20b934.77 Cr sanctioned" },
     issues:0,
     status:"on_track", trend:"Good progress"
   }
@@ -503,9 +502,8 @@ function renderView(key, push){
   const gapPill = '<span class="pill '+(v.physical.ahead?'ahead':'behind')+'">'+esc(v.physical.delta)+'</span>';
   /* estimated == planned on both views, so the schedule pill reads clean */
   const late = Math.round((new Date(v.completion.est) - new Date(v.completion.plan)) / 86400000);
-  const dw = n => n+(n===1?" day":" days");
-  const datePill = late > 0 ? '<span class="pill behind">'+dw(late)+' behind</span>'
-                 : (late < 0 ? '<span class="pill ahead">'+dw(Math.abs(late))+' ahead</span>'
+  const datePill = late > 0 ? '<span class="pill behind">+'+late+'d vs plan</span>'
+                 : (late < 0 ? '<span class="pill ahead">'+Math.abs(late)+'d ahead of plan</span>'
                              : '<span class="pill ahead">On schedule</span>');
 
   document.getElementById("stage").innerHTML =
@@ -523,7 +521,7 @@ function renderView(key, push){
       +'<div class="txt">'
         +'<div class="cap">Estd. Completion</div>'
         +'<div class="val">'+fmtDateShortYr(v.completion.est)+'</div>'
-        +'<div class="sub">'+v.dateLabel+' '+fmtDateShortYr(v.completion.plan)+'</div>'
+        +'<div class="sub">Plan: '+fmtDateShortYr(v.completion.plan)+'</div>'
         +datePill
       +'</div>'
     +'</div>'
